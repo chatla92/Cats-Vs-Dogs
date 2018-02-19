@@ -18,4 +18,4 @@ Trained a Convolutional Neural Network to classify dogs and cat.
 Sample classifications from the network
 ![results](Images/cats_vs_dogs.png)
 
-Accuracy: 74.2
+Accuracy: 83.2%

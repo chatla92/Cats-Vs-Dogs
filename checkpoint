@@ -1,2 +1,2 @@
-model_checkpoint_path: "/Users/saikumar/PycharmProjects/Image classifier using CNN/<tflearn.models.dnn.DNN object at 0x11bc96fd0>"
-all_model_checkpoint_paths: "/Users/saikumar/PycharmProjects/Image classifier using CNN/<tflearn.models.dnn.DNN object at 0x11bc96fd0>"
+model_checkpoint_path: "/Users/saikumar/PycharmProjects/Image classifier using CNN/<tflearn.models.dnn.DNN object at 0x122c70fd0>"
+all_model_checkpoint_paths: "/Users/saikumar/PycharmProjects/Image classifier using CNN/<tflearn.models.dnn.DNN object at 0x122c70fd0>"

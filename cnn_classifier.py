@@ -80,27 +80,27 @@ test_data = np.load('test_data.npy')
 tf.reset_default_graph()
 convnet = input_data(shape=[None, img_size, img_size, 1], name='input')
 
-convnet = conv_2d(convnet, 32, 3, activation='relu')
+convnet = conv_2d(convnet, 32, 5, activation='relu')
 convnet = max_pool_2d(convnet, 2)
 
-convnet = conv_2d(convnet, 64, 3, activation='relu')
+convnet = conv_2d(convnet, 64, 5, activation='relu')
 convnet = max_pool_2d(convnet, 2)
 
-convnet = conv_2d(convnet, 128, 3, activation='relu')
+convnet = conv_2d(convnet, 128, 5, activation='relu')
 convnet = max_pool_2d(convnet, 2)
 
-convnet = conv_2d(convnet, 64, 3, activation='relu')
+convnet = conv_2d(convnet, 64, 5, activation='relu')
 convnet = max_pool_2d(convnet, 2)
 
-convnet = conv_2d(convnet, 32, 3, activation='relu')
+convnet = conv_2d(convnet, 32, 5, activation='relu')
 convnet = global_avg_pool(convnet)
 convnet = dropout(convnet, 0.3)
 
-convnet = fully_connected(convnet, 100, activation='relu')
-convnet = dropout(convnet, 0.2)
+convnet = fully_connected(convnet, 200, activation='relu')
+convnet = dropout(convnet, 0.5)
 
 convnet = fully_connected(convnet, 2, activation='softmax')
-convnet = regression(convnet, optimizer='rmsprop', learning_rate=learning_rate,
+convnet = regression(convnet, optimizer='adam', learning_rate=learning_rate,
                      loss='categorical_crossentropy', name='targets')
 
 model = tflearn.DNN(convnet, tensorboard_dir='log')
@@ -114,7 +114,7 @@ test_x = np.array([i[0] for i in test]).reshape(-1, img_size, img_size, 1)
 test_y = [i[1] for i in test]
 
 
-model.fit({'input': X}, {'targets': Y}, n_epoch=15,
+model.fit({'input': X}, {'targets': Y}, n_epoch=20,
           validation_set=({'input': test_x}, {'targets': test_y}),
           snapshot_step=500, show_metric=True, run_id=str(model))
 model.save(str(model))
